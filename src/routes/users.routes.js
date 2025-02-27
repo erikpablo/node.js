@@ -1,12 +1,11 @@
-const { Router } =  require("express");
+const { Router } = require("express");
 
-const userRoutes = Router()
+const usersRoutes = Router();
 
-userRoutes.post("/", (request, response) => {
+usersRoutes.post('/users', (request, response) => {
     const { name, email, password } = request.body;
 
-    response.json({ name, email, password });
+    response.Json({ name, email, password });
 });
 
-// para espor minha rotas, para quem quiser usar
-module.exports = userRoutes;
+module.exports = usersRoutes;
