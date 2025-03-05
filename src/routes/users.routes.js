@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router, request } = require("express");
 
 const UsersController = require('../controllers/UsersControllers')
 const usersRoutes = Router();
@@ -11,7 +11,17 @@ function myMiddleware(request, response, next ) {
     next();
 };
 
+// verificação de email 
 
+/* 
+function validEmail(request, response, next) {
+     if(!request.body.email || !request.body.email.includes("@gmail.com")) {
+         response.status(400).json({ message: "email is not valid" })
+     }
+
+    next()
+ };
+*/
 
 const usersController = new UsersController();
 
