@@ -16,15 +16,15 @@ function myMiddleware(request, response, next ) {
 /* 
 function validEmail(request, response, next) {
      if(!request.body.email || !request.body.email.includes("@gmail.com")) {
-         response.status(400).json({ message: "email is not valid" })
+        return response.status(400).json({ message: "email is not valid" })
      }
 
-    next()
+    next();
  };
 */
 
 const usersController = new UsersController();
 
-usersRoutes.post('/', myMiddleware, usersController.create);
+usersRoutes.post('/', validPassword, usersController.create);
 
 module.exports = usersRoutes; 
